@@ -5,3 +5,32 @@
     background-size: cover;
     height: 100svh;
 }
+
+@media (max-width: 768px){
+ .header-wrapper{
+    height: 80svh;
+ }   
+}
+
+@media only screen and (max-width: 400px) {
+    .header-top{
+        padding: 2rem;
+        padding-inline: 1rem;
+    }
+    .hero-container{
+        margin-top: 0;
+    padding: 3rem;
+    }
+    .hero-container h1{
+        font-size: 3rem;
+    }
+    h4{
+        font-size: 0.8rem;
+    }
+    .hero-container button{
+        width: 13rem;
+        height: 3.5rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+    }
+  }

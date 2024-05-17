@@ -1,61 +1,36 @@
-"use client"
+"use client";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+// `${Youtube_PlayList_Items_Api}?part=snippet&playlistId=hIqOrKmrL3o&list=PLoAjlnctw2_E-w-VmrUq9fX2Wb334P2oP${REACT_APP_YOUTUBE_API_KEY}`
 
-const Youtubeapi = 'https://www.googleapis.com/youtube/v3/playlistItems';
+const Youtube_PlayList_Items_Api  = "https://www.googleapis.com/youtube/v3/playlistItems";
+const REACT_APP_YOUTUBE_API_KEY ='AIzaSyAGniBKBcyVc07rehG8dvR0noCfCmqVL-s'
 
-export async function getVideos() {
-  try {
-    const response = await axios.get(`${Youtubeapi}?part=snippet&maxResults=10&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`); // Example parameters
-
-    if (response.status !== 200) {
-      throw new Error(`Error fetching videos: Status code ${response.status}`);
-    }
-
-    const videos = response.data.items; // Extract video data from response
-
-    return videos;
-  } catch (error) {
-    console.error('Error getting videos:', error);
-    // Handle errors gracefully (e.g., display error message)
-    return null; // Or return a specific error object
-  }
-}
+ 
 
 const EXPLORE = () => {
-  const [videos, setVideos] = useState(null);
-  const [error, setError] = useState(null);
-
+  
+  const [data, setData] = useState([]);
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const fetchedVideos = await getVideos();
-        setVideos(fetchedVideos);
-      } catch (err) {
-        setError(err.message); // Or handle error differently
-      }
+    const fetchData = () => {
+      axios.get(`${Youtube_PlayList_Items_Api}?part=snippet&playlistId=4mW90KQohSM&list=PLa0qTufrhvfNAq_lNLqHYblnzQjPWOP2K&key=${REACT_APP_YOUTUBE_API_KEY}`)
+      .then((res) => {setData(res.data);})
+        .catch((err) => console.log(err, "error"));
     };
-
     fetchData();
-    console.log(videos)
+    console.log(data)
   }, []);
-
-  // ... (render function based on videos and error states)
-
+  
   return (
-   
-   <section className="expoloer-wrapper">
+    <section className="explorer-wrapper">
       <div className="explore-container flex-col p-30">
         <h2 className="text-[var(--green)] text-[2rem] font-[600]">
           Find Episodes
         </h2>
-      </div>
-      {error && <p className="error-message">Error: {error}</p>}
-      {videos && (
-        <ul className="video-list">
-          {/* Render video data here */}
-        </ul>
-      )}
+        
+       
+       </div>
+      
     </section>
   );
 };
