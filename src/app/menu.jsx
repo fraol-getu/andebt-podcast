@@ -1,14 +1,14 @@
 "use client"
 import { useState, useEffect } from 'react';
 
-const useMenuState = (initialState = false) => {
+const useMenuState = (initialState = true) => {
   const [isOpen, setIsOpen] = useState(initialState);
 
   // Close menu on window resize if client width is less than 800px
   useEffect(() => {
     const handleResize = () => {
       if (document.documentElement.clientWidth <= 800 && isOpen) {
-        setIsOpen(true);
+        setIsOpen(false);
       }
     };
 
