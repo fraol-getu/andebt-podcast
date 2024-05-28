@@ -7,7 +7,7 @@ import { GiPerspectiveDiceOne } from "react-icons/gi";
 const Offer = () => {
   return (
     <section className="offer-wrapper mb-[8rem] top-0 overflow-x-hidden px-0 sm:px-2 ">
-      <div className="offer-container  px-2 sm:px-10 flex justify-center align-middle flex-col">
+      <div className="offer-container  px-2 sm:px-2 flex justify-center align-middle flex-col">
         <div className="offer-top gap-2 translate-x-[18%]  sm:translate-x-[25%]  overflow-x-hidden  px-14 ">
           <h2 className="text-[--black] text-center text-[1.7rem] md:text-[2rem]  lg:text-[2.5rem] w-[50%]">
             We're Offer The Best For You
@@ -18,7 +18,7 @@ const Offer = () => {
             fuga ipsum labore doloremque, reiciendis repudiandae vero.
           </p>
         </div>
-        <div className="offer-bottom  px-2 sm:px-24 translate-x-[25%] sm:translate-x-[15%]  lg:translate-x-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-2  gap-2 justify-center align-middle mt-[3rem] ">
+        <div className="offer-bottom  px-2 sm:px-2 lg:px-24 translate-x-[25%] sm:translate-x-[10%]  lg:translate-x-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-2  gap-2 justify-center align-middle mt-[3rem] ">
           <div className="bottom-container  flex align-middle justify-center flex-col gap-3">
             <span className="bg-[--green] text-center w-[3.8rem] ml-12 h-[4rem] p-5 px-5 rounded-[1rem]">
               <SiAudioboom className="text-[--white] text-[1.6rem]  text-center" />

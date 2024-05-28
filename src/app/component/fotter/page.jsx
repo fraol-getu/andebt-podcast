@@ -16,10 +16,18 @@ const Footer = () => {
                 <h3 className='text-[1.3rem] text-[var(--white)]'>Links</h3>
                 <p className='  text-[var(--secondary)] text-[1rem]'>Follow us on Social media <br/> for exclusive content  and<br/> community hilights connect below</p>
                 <div className="footer-icons flex gap-2 text-[var(--white)]">
+                <a href="https://www.instagram.com/andebetpodcast/" target="_blank">
                 <FaXTwitter />
+                </a>
+                <a href="https://www.instagram.com/andebetpodcast/" target="_blank">
                 <FaInstagram />
+                </a>
+                <a href="https://www.tiktok.com/@andebetpodcast" target="_blank">
                 <FaTiktok />
+                </a>
+                <a href="https://www.youtube.com/@Andebetpodcast" target="_blank">
                 <FaYoutube />
+                </a>
                 </div>
              </div>
 

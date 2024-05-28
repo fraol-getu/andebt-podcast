@@ -2,9 +2,9 @@ import React from "react";
 import { FaHeadphonesSimple } from "react-icons/fa6";
 
   const YOUTUBE_PLAYLIST_ITEMS_API = "https://www.googleapis.com/youtube/v3/search"
-  const YOUTUBE_API_KEY="AIzaSyAGniBKBcyVc07rehG8dvR0noCfCmqVL-s"
+  const YOUTUBE_API_KEY="AIzaSyDBxPt5RbGh_zkBlXxLnbX3r9RuNAuRRCE"
 async function fetchVideo() {
-    const video = await fetch(`${YOUTUBE_PLAYLIST_ITEMS_API}?part=snippet&channelId=UC44I_bEc19ZnOxOHtP-hV6w&maxResults=6&order=date&type=video&key=${YOUTUBE_API_KEY}`, {
+    const video = await fetch(`${YOUTUBE_PLAYLIST_ITEMS_API}?part=snippet&channelId=UC44I_bEc19ZnOxOHtP-hV6w&maxResults=4&order=date&type=video&key=${YOUTUBE_API_KEY}`, {
       cache: "no-store"
     })
      
@@ -19,20 +19,24 @@ export default async function Latest ()  {
 
     // console.log(videoList)
     return (
-    <section className="explorer-wrapper mt-8 py-4  px-7 sm:px-12">
+    <section id="latest" className="explorer-wrapper mt-8 py-4  px-7 sm:px-12">
       <div className="explore-container flex-col   p-5 sm:p-10">
-        <h2 className="text-[var(--black)] text-center  px-4 sm:px-8  text-[2.2rem] font-[600]">
-          Latest Episodes
-        </h2>
-        <div className=" list-container overflow-x-hidden mt-4  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center  gap-16  gap-x-10  p-4  h-[90%] align-middle">
+        <div className="text-container px-6 flex align-middle justify-between">
+        <h2 className="text-[var(--black)] text-center  px-4 sm:px-8  text-[1.5rem] sm:text-[2rem]  font-[600]">
+        Latest Episodes
+      </h2>
+      <button className="bg-[--green] hidden sm:block w-[7rem] bottom-0  text-[.8rem] h-[2.7rem] rounded-[2.5rem]">View All</button>
+
+        </div>
+        <div className=" list-container overflow-x-hidden mt-4  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center  gap-16  gap-x-10  p-4  h-[90%] align-middle">
           {videoList.items.map((item) => {
             const {id, snippet = {}, } = item
             const {title, thumbnails = {}} = snippet
             const {medium = {} } = thumbnails
            return(
-        
-           <div key={id} className="flex-col   p-4 border-[1px]  border-solid  bg-[var(--white)] w-[100%] flex h-auto">
-                <a className='' href={`https://www.youtube.com/watch?v=${id.videoId}`}>
+            
+           <div key={id} className="flex-col rounded-[1.5rem]   p-4 border-[1px]  border-solid  bg-[var(--white)] w-[100%] flex h-auto">
+                <a className='' href={`https://www.youtube.com/watch?v=${id.videoId}`} target="_blank">
             <img className="w-[100%]  " src={medium.url} alt="" />
             </a>
              <div className=" flex p-4 py-6 justify-between gap-12 relative" >
@@ -49,6 +53,8 @@ export default async function Latest ()  {
            )
 
           })}
+        <button className="bg-[--green] sm:hidden  w-[7rem] bottom-0  text-[.8rem] h-[2.7rem] rounded-[2.5rem]">View All</button>
+
         </div>
        
       </div>
