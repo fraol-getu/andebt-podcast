@@ -9,7 +9,7 @@ const year = date.getFullYear()
 const Footer = () => {
   return (
     <section className="footer-wrapper  bg-[var(--black)] p-12   mt-16">
-        <div className="footer-container py-8  px-12 flex-col ">
+        <div className="footer-container py-8  sm:px-12 flex-col ">
          <div className="footer-top relative  flex flex-col justify-center gap-9 flex-wrap p-16 px-20 sm:flex-row sm:justify-between align-middle">
              
              <div className="footer-left flex-col flex gap-6 ">

@@ -15,7 +15,7 @@ const Header = () => {
 
   
   return (
-    <section className={twMerge("header-wrapper overflow-x-hidden bg- relative")}>
+    <section className={twMerge("header-wrapper overflow-x-hidden  overflow-y-hidden bg- relative")}>
       <div className="overflow-x-hidden header-top align-middle  flex justify-between p-16 md:p-20 px-4" >
         <div>
         <img src={Logo.src} className="" width={160} height={150} alt="mm"/>
