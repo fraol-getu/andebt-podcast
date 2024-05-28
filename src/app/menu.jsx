@@ -8,7 +8,7 @@ const useMenuState = (initialState = false) => {
   useEffect(() => {
     const handleResize = () => {
       if (document.documentElement.clientWidth <= 800 && isOpen) {
-        setIsOpen(false);
+        setIsOpen(true);
       }
     };
 

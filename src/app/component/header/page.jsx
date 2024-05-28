@@ -58,7 +58,7 @@ const Header = () => {
         
       </div>
 
-      <div className="hero-container flex-col mt-[1.5rem] absolute px-20 sm:px-40  sm:mt-0  md:px-60 md:mt-4 ">
+      <div className="hero-container flex-col mt-[1.3rem] absolute px-20 sm:px-40  sm:mt-0  md:px-60 md:mt-4 ">
        <h1 className="text-[var(--green)] font-bold   text-[3.3rem]  md:text-[4.5rem]">WE Talk,<br/> YOU LISTEN</h1>
         <h4 className="text-[var(--white)] text-[1rem] md:text-[1.1rem]">The most interactive show on the internet</h4>
         <button className=" p-5 flex gap-2 justify-start  align-middle w-[15.3rem] h-[3.9rem]  mt-8 rounded-[2rem] font-[550] bg-[var(--green)] text-[var(--black]" >
