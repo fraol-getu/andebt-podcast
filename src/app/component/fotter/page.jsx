@@ -50,10 +50,11 @@ const Footer = () => {
              </div>
             
             </div> 
-            <div className=' footer-bottom flex justify-between p-10  px-15 '>
+            <div className=' footer-bottom flex justify-between p-10 px-0 sm:px-15  '>
             <h6 className='text-[var(--secondary)]'>© All Rights Reserved {year} | Andebt podcast </h6>
+             <a href="https://portfolio-opal-ten-98.vercel.app/" target='_blank'>
             <h6 className='text-[var(--secondary)]'>Devloped by Fraol Getu</h6>
-            
+            </a>
             </div>
             </div>
     </section>
