@@ -25,8 +25,9 @@ export default async function Latest ()  {
         <h2 className="text-[var(--black)] text-center  px-4 sm:px-8  text-[1.5rem] sm:text-[2rem]  font-[600]">
         Latest Episodes
       </h2>
+      <a href="https://www.youtube.com/@Andebetpodcast" target="_blank">
       <button className="bg-[--green] hidden sm:block w-[7rem] bottom-0  text-[.8rem] h-[2.7rem] rounded-[2.5rem]">View All</button>
-
+      </a>
         </div>
         <div className=" list-container overflow-x-hidden mt-4  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center  gap-16  gap-x-10  p-4  h-[90%] align-middle">
           {videoList.items.map((item) => {
@@ -53,8 +54,9 @@ export default async function Latest ()  {
            )
 
           })}
+        <a href="https://www.youtube.com/@Andebetpodcast" target="_blank">
         <button className="bg-[--green] sm:hidden  w-[7rem] bottom-0  text-[.8rem] h-[2.7rem] rounded-[2.5rem]">View All</button>
-
+        </a>
         </div>
        
       </div>
