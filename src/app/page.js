@@ -11,9 +11,9 @@ export default function Home() {
   return (
     <main className="main">
      <Header/>
-     {/* <EXPLORE/> */}
+     <EXPLORE/>
      <Offer/>
-     {/* <Latest/> */}
+     <Latest/>
      <Guest/>
      <Footer/>
     
