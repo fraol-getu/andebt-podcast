@@ -16,6 +16,7 @@ const Header = () => {
       return { right: !menuOpen && "-100%" };
     }
   };
+// /
 
   return (
     <section
