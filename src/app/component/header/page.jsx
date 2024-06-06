@@ -11,7 +11,7 @@ import Logo from "../../asset/image/logo.png";
 import Link from "next/link";
 const Header = () => {
   const [menuOpen, setMenOpen] = useState(false);
-  const [clientWidth, setClientWidth] = useState(window.innerWidth); // Initial width
+  const [clientWidth, setClientWidth] = useState(0); // Initial width
 
   useEffect(() => {
     const handleResize = () => setClientWidth(window.innerWidth);
