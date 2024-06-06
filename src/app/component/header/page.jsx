@@ -14,19 +14,22 @@ const Header = () => {
   const [clientWidth, setClientWidth] = useState(0); // Initial width
 
   useEffect(() => {
-    const handleResize = () => setClientWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
+    // Only add resize event listener if window is defined (i.e., in the browser)
+    if (typeof window !== "undefined") {
+      const handleResize = () => setClientWidth(window.innerWidth);
+      window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener("resize", handleResize);
-  }, []); // Empty dependency array ensures it runs only on mount
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
 
   const GetMenuStyle = () => {
-  if (typeof window !== "undefined") {
-    return { right: !menuOpen && "-100%" };
-  } else {
-    return setMenOpen(true); // Default style
-  }
-};
+    if (clientWidth <= 800) {
+      return { right: !menuOpen && "-100%" };
+    }
+    return {}; // Default style
+  };
+
 
   return (
     <section
