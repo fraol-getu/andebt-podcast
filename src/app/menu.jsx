@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { MdVisibility } from 'react-icons/md';
 
-const useMenuState = (initialState = true) => {
+const useMenuState = (initialState = false) => {
   const [isOpen, setIsOpen] = useState(initialState);
 
   // Close menu on window resize if client width is less than 800px

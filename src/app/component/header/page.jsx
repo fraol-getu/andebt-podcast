@@ -10,20 +10,22 @@ import { IoCloseOutline } from "react-icons/io5";
 import Logo from "../../asset/image/logo.png";
 import Link from "next/link";
 const Header = () => {
-  if (typeof document !== 'undefined') {
-
-  }
-
- 
   const [menuOpen, setMenOpen] = useState(false);
-  const GetMenuStyle = (menuOpen) => {
-    if (document.documentElement.clientWidth <= 800) {
+  const [clientWidth, setClientWidth] = useState(window.innerWidth); // Initial width
+
+  useEffect(() => {
+    const handleResize = () => setClientWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); // Empty dependency array ensures it runs only on mount
+
+  const GetMenuStyle = () => {
+    if (clientWidth <= 800) {
       return { right: !menuOpen && "-100%" };
     }
+    return {}; // Default style
   };
-  useEffect(() => {
-      GetMenuStyle()
-  }, [])
 
   return (
     <section
