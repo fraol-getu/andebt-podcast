@@ -2,7 +2,7 @@ import React from "react";
 import { FaHeadphonesSimple } from "react-icons/fa6";
 
   const YOUTUBE_PLAYLIST_ITEMS_API = "https://www.googleapis.com/youtube/v3/search"
-  const YOUTUBE_API_KEY="AIzaSyDBxPt5RbGh_zkBlXxLnbX3r9RuNAuRRCE"
+  const YOUTUBE_API_KEY="AIzaSyAGniBKBcyVc07rehG8dvR0noCfCmqVL-s"
 async function fetchVideo() {
     const video = await fetch(`${YOUTUBE_PLAYLIST_ITEMS_API}?part=snippet&channelId=UC44I_bEc19ZnOxOHtP-hV6w&maxResults=4&order=date&type=video&key=${YOUTUBE_API_KEY}`, {
       cache: "no-store"

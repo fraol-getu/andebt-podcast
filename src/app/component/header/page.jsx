@@ -21,11 +21,12 @@ const Header = () => {
   }, []); // Empty dependency array ensures it runs only on mount
 
   const GetMenuStyle = () => {
-    if (clientWidth <= 800) {
-      return { right: !menuOpen && "-100%" };
-    }
-    return {}; // Default style
-  };
+  if (typeof window !== "undefined") {
+    return { right: !menuOpen && "-100%" };
+  } else {
+    return setMenOpen(true); // Default style
+  }
+};
 
   return (
     <section
