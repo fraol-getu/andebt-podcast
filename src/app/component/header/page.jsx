@@ -11,7 +11,6 @@ import Logo from "../../asset/image/logo.png";
 import Link from "next/link";
 const Header = () => {
   if (typeof document !== 'undefined') {
-    // Code that uses document object (e.g., document.getElementById())
   }
 
  
