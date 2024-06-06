@@ -10,7 +10,17 @@ import { IoCloseOutline } from "react-icons/io5";
 import Logo  from '../../asset/image/logo.png'
 import Link from "next/link";
 const Header = () => {
-  
+  const[menuOpen, setMenOpen] = useState(false)
+  const GetMenuStyle = (menuOpen) => {
+if(document.documentElement.clientWidth <= 800){
+  return {right: !menuOpen && "-100%"}
+}
+}
+
+
+
+
+
   const { isOpen, toggleMenu } = useMenuState();
 
   
@@ -20,7 +30,11 @@ const Header = () => {
         <div>
         <img src={Logo.src} className="" width={160} height={150} alt="mm"/>
         </div>
-        <div style={{  display: isOpen ? 'flex' : 'none'  }} className= {twMerge(" z-10 text-[var(--black)] md:mt-2 md:text-[var(--white)] hover:cursor-pointer header-menu md:right-[40%]  right-0   md:bg-transparent md:p-0 md:flex-row text-[1rem] md:flex gap-8 lg:text-[1.1rem] font-500 bg-[var(--grey)] p-[7rem] ml-[5rem] absolute px-[9rem] flex flex-col  justify-center g-[8rem] transtion-all 300ms ease-in")}>
+        <div style={GetMenuStyle(menuOpen)} className= {twMerge(" z-10 text-[var(--black)] md:mt-2 md:text-[var(--white)] hover:cursor-pointer header-menu md:right-[40%]  right-0   md:bg-transparent md:p-0 md:flex-row text-[1rem] md:flex gap-8 lg:text-[1.1rem] font-500 bg-[var(--grey)] p-[7rem] ml-[5rem] absolute px-[9rem] flex flex-col  justify-center g-[8rem] transtion-all 300ms ease-in")}>
+          
+        <a href="/">
+          <h5>Home</h5>
+          </a>
           <a href="#popular">
           <h5>Popular</h5>
           </a>
@@ -30,9 +44,7 @@ const Header = () => {
           <a href="#guest">
           <h5>Suggest</h5>
           </a>
-          <a href="/contact">
-          <h5>Contact</h5>
-          </a>
+         
         </div>
         
         <div className="header-right md:flex gap-4 hidden z-[-1px]">
@@ -46,8 +58,8 @@ const Header = () => {
           </button>
           </a>
         </div>
-        <button className="flex md:hidden z-50 right-5 text-[var(--black)] absolute" onClick={toggleMenu}>
-        {isOpen ? <IoCloseOutline size={35} className=" "/>  : <MdMenu size={35} className=" 
+        <button className="flex md:hidden z-50 right-5 text-[var(--black)] absolute" onClick={() =>setMenOpen((prev)=> !prev)}>
+        {menuOpen ? <IoCloseOutline size={35} className=" "/>  : <MdMenu size={35} className=" 
           "  />}
         
           

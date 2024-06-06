@@ -8,7 +8,7 @@ const useMenuState = (initialState = true) => {
   // Close menu on window resize if client width is less than 800px
   useEffect(() => {
     const handleResize = () => {
-      if (document.documentElement.clientWidth <= 800) {
+      if (document.documentElement.clientWidth < 800) {
       setIsOpen(false)
       } else{
         setIsOpen(true)
