@@ -16,7 +16,7 @@ const Header = () => {
       return { right: !menuOpen && "-100%" };
     }
   };
-// /
+
 
   return (
     <section
@@ -34,7 +34,7 @@ const Header = () => {
             " z-10 text-[var(--black)] md:mt-2 md:text-[var(--white)] hover:cursor-pointer header-menu md:right-[40%]  right-0   md:bg-transparent md:p-0 md:flex-row text-[1rem] md:flex gap-8 lg:text-[1.1rem] font-500 bg-[var(--grey)] p-[7rem] ml-[5rem] absolute px-[9rem] flex flex-col  justify-center g-[8rem] transtion-all 300ms ease-in"
           )}
         >
-          <a href="/">
+          <a href="/home">
             <h5>Home</h5>
           </a>
           <a href="#popular">
