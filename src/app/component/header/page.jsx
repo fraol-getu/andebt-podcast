@@ -10,6 +10,11 @@ import { IoCloseOutline } from "react-icons/io5";
 import Logo from "../../asset/image/logo.png";
 import Link from "next/link";
 const Header = () => {
+  if (typeof document !== 'undefined') {
+    // Code that uses document object (e.g., document.getElementById())
+  }
+
+ 
   const [menuOpen, setMenOpen] = useState(false);
   const GetMenuStyle = (menuOpen) => {
     if (document.documentElement.clientWidth <= 800) {
