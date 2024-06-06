@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../styles/Header.css";
 import { BsSoundwave } from "react-icons/bs";
 import { IoIosPlayCircle } from "react-icons/io";
@@ -11,6 +11,7 @@ import Logo from "../../asset/image/logo.png";
 import Link from "next/link";
 const Header = () => {
   if (typeof document !== 'undefined') {
+
   }
 
  
@@ -20,7 +21,9 @@ const Header = () => {
       return { right: !menuOpen && "-100%" };
     }
   };
-
+  useEffect(() => {
+      GetMenuStyle()
+  }, [])
 
   return (
     <section
