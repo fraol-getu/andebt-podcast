@@ -9,10 +9,15 @@ import useMenuState from "@/app/menu";
 import { IoCloseOutline } from "react-icons/io5";
 import Logo from "../../asset/image/logo.png";
 import Link from "next/link";
-const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [clientWidth, setClientWidth] = useState(document.documentElement.clientWidth);
 
+
+const Header = () =>  {
+  const [menuOpen, setMenuOpen] = useState(false);
+ 
+  const [clientWidth, setClientWidth] = useState( typeof document !== 'undefined' ? document.documentElement.clientWidth : 0);
+  
+  
+  
   useEffect(() => {
     const handleResize = () => setClientWidth(document.documentElement.clientWidth);
     window.addEventListener('resize', handleResize);
