@@ -10,24 +10,19 @@ import { IoCloseOutline } from "react-icons/io5";
 import Logo from "../../asset/image/logo.png";
 import Link from "next/link";
 const Header = () => {
-  const [menuOpen, setMenOpen] = useState(false);
-  const [clientWidth, setClientWidth] = useState(0); // Initial width
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [clientWidth, setClientWidth] = useState(document.documentElement.clientWidth);
 
   useEffect(() => {
-    // Only add resize event listener if window is defined (i.e., in the browser)
-    if (typeof window !== "undefined") {
-      const handleResize = () => setClientWidth(window.innerWidth);
-      window.addEventListener("resize", handleResize);
+    const handleResize = () => setClientWidth(document.documentElement.clientWidth);
+    window.addEventListener('resize', handleResize);
 
-      return () => window.removeEventListener("resize", handleResize);
-    }
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  const GetMenuStyle = () => {
+  const GetMenuStyle = (menuOpen, clientWidth) => {
     if (clientWidth <= 800) {
-      return { right: !menuOpen && "-100%" };
-    }
-    return {}; // Default style
+      return { visibility: menuOpen ? "visible" : "hidden" };
+    } 
   };
 
 
@@ -38,13 +33,13 @@ const Header = () => {
       )}
     >
       <div className="overflow-x-hidden header-top align-middle  flex justify-between p-12 md:p-20 px-4">
-        <div>
-          <img src={Logo.src} className="" width={160} height={150} alt="mm" />
+        <div className="md:mb-8">
+          <img src={Logo.src} className="" width={160} height={200} alt="mm" />
         </div>
         <div
-          style={GetMenuStyle(menuOpen)}
+          style={GetMenuStyle(menuOpen, clientWidth)}
           className={twMerge(
-            " z-10 text-[var(--black)] md:mt-2 md:text-[var(--white)] hover:cursor-pointer header-menu md:right-[40%]  right-0   md:bg-transparent md:p-0 md:flex-row text-[1rem] md:flex gap-8 lg:text-[1.1rem] font-500 bg-[var(--grey)] p-[7rem] ml-[5rem] absolute px-[9rem] flex flex-col  justify-center g-[8rem] transtion-all 300ms ease-in"
+            " z-10 text-[var(--black)] md: md:text-[var(--white)] hover:cursor-pointer header-menu md:right-[40%]  right-0   md:bg-transparent md:p-0 md:flex-row text-[1rem] md:flex gap-8 lg:text-[1.1rem] font-500 bg-[var(--grey)] p-[7rem] ml-[5rem] absolute px-[9rem] flex flex-col  justify-center g-[8rem] transtion-all 300ms ease-in"
           )}
         >
           <a href="/home">
@@ -73,7 +68,7 @@ const Header = () => {
         </div>
         <button
           className="flex md:hidden z-50 right-5 text-[var(--black)] absolute"
-          onClick={() => setMenOpen((prev) => !prev)}
+          onClick={() => setMenuOpen((prev) => !prev)}
         >
           {menuOpen ? (
             <IoCloseOutline size={35} className=" " />
