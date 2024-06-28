@@ -1,10 +1,11 @@
 import React from "react";
 import { FaHeadphonesSimple } from "react-icons/fa6";
 
-  const YOUTUBE_PLAYLIST_ITEMS_API = "https://www.googleapis.com/youtube/v3/search"
-  const YOUTUBE_API_KEY="AIzaSyAGniBKBcyVc07rehG8dvR0noCfCmqVL-s"
+const YOUTUBE_PLAYLIST_ITEMS_API ="https://www.googleapis.com/youtube/v3/playlistItems";
+
+  const YOUTUBE_API_KEY="AIzaSyCoO8wEL8sgmo4JjtyaFqKTgOQu69-39Pk"
 async function fetchVideo() {
-    const video = await fetch(`${YOUTUBE_PLAYLIST_ITEMS_API}?part=snippet&channelId=UC44I_bEc19ZnOxOHtP-hV6w&maxResults=4&order=date&type=video&key=${YOUTUBE_API_KEY}`, {
+    const video = await fetch( `${YOUTUBE_PLAYLIST_ITEMS_API}?part=snippet&playlistId=PLbJn9Lzkmk4RTbw0b1zLtS_6jVY1Wc4RQ&maxResults=4&key=${YOUTUBE_API_KEY}`, {
       cache: "no-store"
     })
      
@@ -32,12 +33,12 @@ export default async function Latest ()  {
         <div className=" list-container overflow-x-hidden mt-4  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center  gap-16  gap-x-10  p-4  h-[90%] align-middle">
           {videoList.items.map((item) => {
             const {id, snippet = {}, } = item
-            const {title, thumbnails = {}} = snippet
+            const {title, thumbnails = {}, resourceId} = snippet
             const {medium = {} } = thumbnails
            return(
             
            <div key={id} className="flex-col rounded-[1.5rem]   p-4 border-[1px]  border-solid  bg-[var(--white)] w-[100%] flex h-auto">
-                <a className='' href={`https://www.youtube.com/watch?v=${id.videoId}`} target="_blank">
+                <a className='' href={`https://www.youtube.com/watch?v=${resourceId.videoId}`} target="_blank">
             <img className="w-[100%]  " src={medium.url} alt="" />
             </a>
              <div className=" flex p-4 py-6 justify-between gap-12 relative" >

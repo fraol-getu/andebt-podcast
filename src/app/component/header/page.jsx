@@ -14,12 +14,12 @@ import Link from "next/link";
 const Header = () =>  {
   const [menuOpen, setMenuOpen] = useState(false);
  
-  const [clientWidth, setClientWidth] = useState( typeof document !== 'undefined' ? document.documentElement.clientWidth : 0);
+  const [clientWidth, setClientWidth] = useState(document.documentElement.clientWidth)
   
   
   
   useEffect(() => {
-    const handleResize = () => setClientWidth(document.documentElement.clientWidth);
+    const handleResize = () => setClientWidth(typeof document !== 'undefined' ? document.documentElement.clientWidth : 0);
     window.addEventListener('resize', handleResize);
 
     return () => window.removeEventListener('resize', handleResize);
@@ -93,7 +93,7 @@ const Header = () =>  {
           <br /> YOU LISTEN
         </h1>
         <h4 className="text-[var(--white)] text-[1rem] md:text-[1.1rem]">
-          The most interactive show on the internet
+          The most interactive show on the Ethiopia
         </h4>
         <button className=" p-5 flex gap-2 justify-start  align-middle w-[15.3rem] h-[3.9rem]  mt-8 rounded-[2rem] font-[550] bg-[var(--green)] text-[var(--black]">
           Start listening
